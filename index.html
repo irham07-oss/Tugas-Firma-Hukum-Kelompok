@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusantara & Partners - Firma Hukum</title>
+    <style>
+        /* Desain Utama */
+        :root {
+            --primary: #0a192f;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: var(--primary);
+            scroll-behavior: smooth;
+        }
+        
+        /* Header & Navigasi */
+        header {
+            background-color: var(--primary);
+            color: var(--gold);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: 2px; }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+        nav a:hover { color: var(--gold); }
+        
+        /* Hero Section (Beranda) */
+        /* Hero Section Beresolusi Tinggi & Sinematik */
+        .hero {
+            height: 100vh;
+            /* Menggunakan gambar arsitektur gedung hukum ultra-wide dengan sudut low-angle */
+            background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.9)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.2.1&auto=format&fit=crop&w=2560&q=100') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            box-sizing: border-box;
+            background-attachment: fixed;
+        }
+        .hero h2 { font-size: 3.5rem; color: var(--gold); margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; line-height: 1.6; font-family: 'Arial', sans-serif; margin-bottom: 40px; }
+        
+        /* Fitur Layanan di Beranda */
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .feature-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            color: var(--gold);
+            transition: all 0.3s;
+        }
+        .feature-badge:hover {
+            background: var(--gold);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Bagian Umum */
+        section { padding: 100px 50px; }
+        .bg-gray { background-color: var(--gray); }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .section-subtitle { text-align: center; max-width: 800px; margin: 0 auto 50px auto; line-height: 1.8; font-family: 'Arial', sans-serif; color: #444; }
+        
+        /* Tim Ahli Kami (Baru) */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .team-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 30px 20px;
+            width: 200px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+            transition: transform 0.3s;
+        }
+        .team-card:hover { transform: translateY(-10px); }
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            margin-bottom: 15px;
+        }
+        .team-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; color: var(--primary); }
+        .team-role { font-size: 0.9rem; font-family: 'Arial', sans-serif; color: #666; }
+
+        /* Area Praktik (Services) */
+        .services-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--gold);
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card p { font-family: 'Arial', sans-serif; line-height: 1.6; color: #555; }
+        
+        /* Kontak */
+        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; max-width: 1000px; margin: 0 auto; }
+        .contact-info, .contact-form { flex: 1; min-width: 300px; }
+        .contact-info p { font-family: 'Arial', sans-serif; line-height: 1.8; margin-bottom: 15px; color: #333; }
+        .contact-info i { color: var(--gold); margin-right: 10px; font-weight: bold; }
+        .contact-form form { display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 5px;
+            font-family: 'Arial', sans-serif; box-sizing: border-box; background: #f9f9f9;
+        }
+        .contact-form textarea { resize: vertical; height: 120px; }
+        .btn-submit {
+            background-color: var(--gold); color: var(--primary); border: none;
+            padding: 15px; font-size: 16px; font-weight: bold; border-radius: 5px;
+            cursor: pointer; transition: background-color 0.3s;
+        }
+        .btn-submit:hover { background-color: #b5952f; color: var(--white); }
+        
+        /* Footer */
+        footer { background-color: var(--primary); color: var(--white); text-align: center; padding: 25px; font-family: 'Arial', sans-serif; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NUSANTARA & PARTNERS</h1>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#services">Layanan</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
+
+    <div id="home" class="hero">
+        <h2>Keadilan Anda, Prioritas Kami.</h2>
+        <p>Memberikan representasi hukum yang berintegritas, profesional, dan tak kenal lelah untuk melindungi hak-hak Anda di setiap langkah.</p>
+        
+        <!-- Layanan Unggulan di Beranda -->
+        <div class="hero-features">
+            <div class="feature-badge">✓ Konsultasi Hukum Gratis (Awal)</div>
+            <div class="feature-badge">✓ Pendampingan Litigasi</div>
+            <div class="feature-badge">✓ Penyusunan Kontrak Bisnis</div>
+            <div class="feature-badge">✓ Mediasi & Penyelesaian Sengketa</div>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">Tentang Kami</h2>
+        <p class="section-subtitle">
+            Nusantara & Partners adalah firma hukum terkemuka yang didedikasikan untuk memberikan solusi hukum strategis. Didirikan oleh para advokat berpengalaman, kami percaya bahwa setiap klien berhak mendapatkan pembelaan hukum yang transparan dan berstandar tinggi.
+        </p>
+
+        <!-- Bagian Tim Ahli -->
+        <h2 class="section-title" style="font-size: 2rem; margin-top: 60px;">Tim Ahli Kami</h2>
+        <div class="team-container">
+            <!-- Profil 1 -->
+            <div class="team-card">
+                <img src="images/emil.jpg" alt="Emil Sinatrya">
+                <div class="team-name">Emil Sinatrya</div>
+                <div class="team-role">Managing Partner</div>
+            </div>
+            <!-- Profil 2 -->
+            <div class="team-card">
+                <img src="images/naufal.jpg" alt="Naufal Maulana">
+                <div class="team-name">Naufal Maulana</div>
+                <div class="team-role">Senior Associate</div>
+            </div>
+            <!-- Profil 3 -->
+            <div class="team-card">
+                <img src="images/saskia.jpg" alt="Saskia Alifia">
+                <div class="team-name">Saskia Alifia</div>
+                <div class="team-role">Corporate Lawyer</div>
+            </div>
+            <!-- Profil 4 -->
+            <div class="team-card">
+                <img src="images/rahma.jpg" alt="Rahma Zulayka">
+                <div class="team-name">Rahma Zulayka</div>
+                <div class="team-role">Legal Counsel</div>
+            </div>
+            <!-- Profil 5 -->
+            <div class="team-card">
+                <img src="images/iqball.jpg" alt="Iqbal Ramadhan">
+                <div class="team-name">Iqbal Ramadhan</div>
+                <div class="team-role">Litigation Specialist</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-gray">
+        <h2 class="section-title">Area Praktik Kami</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Hukum Perusahaan</h3>
+                <p>Pendampingan legalitas bisnis, kontrak komersial, audit kepatuhan (compliance), hingga proses merger dan akuisisi perusahaan skala besar.</p>
+            </div>
+            <div class="service-card">
+                <h3>Litigasi & Sengketa</h3>
+                <p>Representasi tangguh di pengadilan tingkat pertama hingga Mahkamah Agung, mencakup sengketa perdata, pidana, maupun tata usaha negara.</p>
+            </div>
+            <div class="service-card">
+                <h3>Kekayaan Intelektual</h3>
+                <p>Pendaftaran, perlindungan, dan penanganan sengketa untuk merek dagang, hak cipta, desain industri, serta paten inovasi bisnis Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-container">
+            <!-- Bagian Kiri: Informasi -->
+            <div class="contact-info">
+                <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 20px;">Informasi Kontak</h3>
+                <p>Tim ahli kami (Emil, Naufal, Saskia, Rahma, dan Iqbal) siap membantu menganalisis permasalahan hukum Anda. Silakan isi formulir di samping atau hubungi kami secara langsung.</p>
+                <p><i>📍</i> Gedung Keadilan Lt. 5, Jl. Hukum Raya No. 1, Jakarta</p>
+                <p><i>✉️</i> konsultasi@nusantarapartners.law</p>
+                <p><i>📞</i> (021) 1234-5678</p>
+                <p><i>📱</i> WhatsApp: +62 812-3456-7890</p>
+            </div>
+            
+            <!-- Bagian Kanan: Formulir -->
+            <div class="contact-form">
+                <form action="#" method="POST" onsubmit="alert('Pesan berhasil dikirim ke tim Nusantara & Partners! Kami akan segera menghubungi Anda.'); return false;">
+                    <input type="text" name="nama" placeholder="Nama Lengkap Anda" required>
+                    <input type="email" name="email" placeholder="Alamat Email Anda" required>
+                    <input type="text" name="subjek" placeholder="Topik (Contoh: Konsultasi Hukum Perusahaan)">
+                    <textarea name="pesan" placeholder="Jelaskan secara singkat permasalahan hukum atau layanan yang Anda butuhkan..." required></textarea>
+                    <button type="submit" class="btn-submit">Kirim Pesan Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Nusantara & Partners. Tugas Kelompok - Pemrograman Web.
+    </footer>
+
+</body>
+</html>
